@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import ProjectForm from "@/components/projects/ProjectForm.vue";
+import TranslationTable from "@/components/translations/TranslationTable.vue";
+import AppButton from "@/components/ui/AppButton.vue";
+import ProgressBar from "@/components/ui/ProgressBar.vue";
+import { languageService } from "@/services/languageService";
 import { useProjectStore } from "@/stores/projectStore";
 import { useTranslationStore } from "@/stores/translationStore";
-import { languageService } from "@/services/languageService";
-import type { Project, ProjectFormData, Language } from "@/types";
-import TranslationTable from "@/components/translations/TranslationTable.vue";
-import ProjectForm from "@/components/projects/ProjectForm.vue";
-import ProgressBar from "@/components/ui/ProgressBar.vue";
-import AppBadge from "@/components/ui/AppBadge.vue";
-import AppButton from "@/components/ui/AppButton.vue";
+import type { Language, ProjectFormData } from "@/types";
+import { computed, onMounted, ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
